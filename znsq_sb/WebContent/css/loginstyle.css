@@ -1,0 +1,143 @@
+body {
+	background-image: url(../images/bg.png);
+	background-attachment: fixed;
+	background-size: contain;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 30px;
+	text-align: center;
+    margin: 0;
+    padding: 0;
+    
+}
+
+h1 {
+	font-size: 60px;
+	font-weight: normal;
+	margin: 0;
+    color: #FFF;
+	line-height: 1;
+}
+
+h2 {
+	font-size: 40px;
+	font-weight: normal;
+	margin: 0;
+	color: #0E3C7B;
+/*     text-transform: lowercase; */
+}
+
+h3 {
+	font-size: 20px;
+	font-weight: normal;
+	margin: 0;
+    color: #0E3C7B;
+}
+
+p {
+	width: 960px;
+	margin: 40px auto;
+	color: #FFF;
+    line-height: 200%;
+}
+
+a, a:visited {
+	color: #FFF;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+	list-style: none;
+}
+
+
+#header{
+
+	height: 27px;
+	width: 100%;
+	background: white;
+}
+
+span{
+
+	
+}
+
+
+.login-box{
+
+	width: 360px;
+	height: 360px;
+	background: #FFF;
+	border-radius: 60px;
+	text-align: center;
+	margin: 0 auto;
+	vertical-align: bottom;
+	margin-top: 120px;
+}
+
+#main{
+
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	min-width: 950px;
+	min-height: 550px;
+}
+
+.sb-logo{
+
+	height: 80px;
+	padding-top: 30px;
+}
+
+.login-account{
+
+/* 	background: rgba(14, 60, 123, 0.44); */
+	left: 26px;
+	width: 308px;
+	top: 189px;
+	height: 39px;
+	z-index: 200;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+
+.input-padding{
+
+	height: 30px;
+}
+
+.field-underline{
+
+	left: 4px;
+	margin-top: 8px;
+	width: 300px;
+	height: 2px;
+	bottom: -8px;
+	background: rgba(15, 61, 123, 1);
+}
+
+
+input,input:focus{
+
+	border: 0px;
+	outline: none;
+	height: 27px;
+	font-size: 20px;
+	width: 100%;
+	color: #0E3C7B;
+
+}
+
+.login-button{
+
+	padding-top: 20px;
+	font-weight: 800;
+}
