@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 映射ElecDebt类 -->
+	<class name="cn.edu.xmu.nextgencomm.model.ElecDebt" table="elec_debt_table">
+		<id name="id" column="t_id" type="int">
+			<generator class="increment"/>
+		</id>
+
+		<property name="elecDebt" column="debt" type="double" length="10"/>
+		
+			
+		<many-to-one name="elecDebtRoom" unique="true" class="cn.edu.xmu.nextgencomm.model.Room"
+			column="room_id" lazy="false"/>
+
+	</class>
+</hibernate-mapping>

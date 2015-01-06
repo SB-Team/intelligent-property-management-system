@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 映射Community类 -->
+	<class name="cn.edu.xmu.nextgencomm.model.Community" table="community_table">
+		<id name="id" column="c_id" type="int">
+			<generator class="increment"/>
+		</id>	
+		<property name="name" column="c_name" type="string" length="30"/>	
+		<property name="area" column="c_area" type="string" length="30"/>
+		
+		<set name="buildings" inverse="true" order-by="id" lazy="false">
+			<!-- 指定关联的外键列 -->
+			<key column="community_id"/>
+			<!-- 用以映射到关联类属性 -->
+			<one-to-many class="cn.edu.xmu.nextgencomm.model.Building" />
+		</set>	
+		
+		<set name="waterDegrees" inverse="true" lazy="false">
+			<!-- 指定关联的外键列 -->
+			<key column="community_id"/>
+			<!-- 用以映射到关联类属性 -->
+			<one-to-many class="cn.edu.xmu.nextgencomm.model.WaterDegree" />
+		</set>
+		<set name="users" inverse="true" lazy="false">
+			<!-- 指定关联的外键列 -->
+			<key column="community_id"/>
+			<!-- 用以映射到关联类属性 -->
+			<one-to-many class="cn.edu.xmu.nextgencomm.model.User" />
+		</set>
+	</class>
+</hibernate-mapping>

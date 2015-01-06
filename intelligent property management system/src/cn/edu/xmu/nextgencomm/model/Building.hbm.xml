@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 映射Building类 -->
+	<class name="cn.edu.xmu.nextgencomm.model.Building" table="building_table">
+		<id name="id" column="t_id" type="int">
+			<generator class="increment"/>
+		</id>
+		<property name="num" column="num" type="int" length="10"/>
+		
+		<many-to-one name="community" class="cn.edu.xmu.nextgencomm.model.Community"
+			cascade="save-update,persist" column="community_id" lazy="false"/>
+			
+		<set name="floors" inverse="true" order-by="id" lazy="false">
+			<!-- 指定关联的外键列 -->
+			<key column="building_id"/>
+			<!-- 用以映射到关联类属性 -->
+			<one-to-many class="cn.edu.xmu.nextgencomm.model.Floor" />
+		</set>
+
+	</class>
+</hibernate-mapping>

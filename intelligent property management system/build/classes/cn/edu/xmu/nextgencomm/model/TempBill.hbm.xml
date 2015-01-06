@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 映射TempBil类 -->
+	<class name="cn.edu.xmu.nextgencomm.model.TempBill" table="temp_bill">
+		<id name="id" column="t_id" type="int">
+			<generator class="increment"/>
+		</id>
+		<property name="pcarnum" column="p_car_num" type="string" length="30"/>
+		<property name="phename" column="p_he_name" type="string" length="30"/>
+		<property name="pbegintime" column="p_begin_time" type="string" length="30"/>
+		<property name="pendtime" column="p_end_time" type="string" length="30"/>
+		<property name="phour" column="p_hour" type="int" length="30"/>
+		<property name="pday" column="p_day" type="int" length="30"/>
+		<property name="pbill" column="p_bill" type="int" length="30"/>
+		<property name="plasttime" column="p_last_pay_time" type="string" length="30"/>
+		
+
+	</class>
+</hibernate-mapping>

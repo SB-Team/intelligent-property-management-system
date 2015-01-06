@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 映射ElecPayment类 -->
+	<class name="cn.edu.xmu.nextgencomm.model.ElecPayment" table="elec_payment_table">
+		<id name="id" column="t_id" type="int">
+			<generator class="increment"/>
+		</id>
+		<property name="communityPayment" column="community_payment" type="double" length="10"/>
+		<property name="buildingPayment" column="building_payment" type="double" length="10"/>
+		<property name="floorPayment" column="floor_payment" type="double" length="10"/>
+		<property name="roomPayment" column="room_payment" type="double" length="10"/>
+		<property name="isPay" column="is_pay" type="int" length="10"/>
+		<property name="total" column="total" type="double" length="10"/>
+		<property name="day" column="day" type="string" length="30"/>
+		
+			
+		<many-to-one name="roomElecDegree" unique="true" class="cn.edu.xmu.nextgencomm.model.ElecDegree"
+			column="room_id" lazy="false"/>
+		<many-to-one name="room" class="cn.edu.xmu.nextgencomm.model.Room"
+			column="r_id" lazy="false"/>
+			
+		
+		
+	</class>
+</hibernate-mapping>

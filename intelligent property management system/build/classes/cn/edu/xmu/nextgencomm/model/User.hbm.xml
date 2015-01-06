@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 映射User类 -->
+	<class name="cn.edu.xmu.nextgencomm.model.User" table="users_manager_table">
+		<id name="id" column="t_id" type="int">
+			<generator class="increment"/>
+		</id>
+		<property name="username" column="user_id" type="string" length="16"/>
+		<property name="password" column="user_pwd" type="string" length="12"/>
+		<property name="role" column="user_role" type="string" length="20"/>
+		<property name="name" column="user_name" type="string" length="20"/>
+		<property name="sex" column="user_sex" type="string" length="5"/>
+		<property name="age" column="user_age" type="int" length="5"/>
+		<property name="phone" column="user_phone" type="string" length="20"/>
+		<property name="email" column="user_email" type="string" length="30"/>
+		<property name="address" column="user_address" type="string" length="30"/>
+		<property name="houseStatus" column="user_house_status" type="string" length="30"/>
+		
+		<set name="parkings" inverse="true" lazy="false">
+			<!-- 指定关联的外键列 -->
+			<key column="user_id"/>
+			<!-- 用以映射到关联类属性 -->
+			<one-to-many class="cn.edu.xmu.nextgencomm.model.Parking" />
+		</set>
+		
+		<one-to-one name="room" property-ref="user"/>
+		<many-to-one name="community" class="cn.edu.xmu.nextgencomm.model.Community"
+			column="community_id" lazy="false"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 指定Struts 2配置文件的根元素 -->
+<struts>
+	<!-- 指定全局国际化资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="mess"/>
+	<!-- 指定国际化编码所使用的字符集 -->	
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<!-- 所有的Action定义都应该放在package下 -->
+	<package name="default" namespace="/" extends="struts-default" >
+	<!--配置Action -->
+	<action name="login" class="LoginAction">
+		<result name="owner">/owner_index.jsp</result>
+		<result name="manager">/manager_index.jsp</result>
+		<result name="guard">/guard_index.jsp</result>
+		<result name="super">/super_index.jsp</result>
+		<result name="input">/login.jsp</result>
+	</action>
+	<action name="scan" class="ScanAction"><!-- 查看个人信息Action -->
+           <result name="owner">/owner_info.jsp</result>  
+           <result name="manager">/manager_info.jsp</result>  
+           <result name="guard">/guard_info.jsp</result>  
+           <result name="input">/error.jsp</result> 
+    </action>
+    <action name="modifyuser" class="cn.edu.xmu.nextgencomm.view.UserModifyAction"><!-- 修改用户信息Action -->
+       <result>/modify_user_success.jsp</result>
+       <result name="error">/modify_user_error.jsp</result>
+      </action>
+      <action name="scanAll" class="cn.edu.xmu.nextgencomm.view.ManageUserAction"><!-- 查看所有用户信息及添加用户Action -->
+        <result>/viewAllUsers.jsp</result>
+       	<result name="list">/viewAllUsers.jsp</result>
+      </action>
+      <action name="parking" class="ParkingAction"><!-- 车位管理Action -->
+           <result name="viewMyParkings">/o_parking_place_info.jsp</result>
+           <result name="viewAllParkings">/g_parking_management.jsp</result>
+           <result name="deleteParking">/g_parking_management.jsp</result> 
+           <result name="getUpdateParking">/g_modify_parking.jsp</result> 
+           <result name="clickRentParking">/m_modify_parking.jsp</result>   
+            <result name="updateParking">/g_parking_management.jsp</result> 
+            <result name="updateRentParking">/m_parking_rent_center.jsp</result>
+            <result name="findTempParkings">/g_parking_management.jsp</result>
+            <result name="settendParking">/temp_management_bill.jsp</result>
+            <result name="checkSuccess">/g_check_success.jsp</result>
+            <result name="checkFail">/g_check_fail.jsp</result>
+            <result name="checkOwnerSuccess">/g_check_owner_success.jsp</result>
+            <result name="checkOwnerFail">/g_check_owner_fail.jsp</result>
+            <result name="managerCheckOwnerSuccess">/m_check_owner_success.jsp</result>
+            <result name="managerCheckOwnerFail">/m_check_owner_fail.jsp</result>
+            <result name="viewAllTempParkings">/m_parking_management.jsp</result>
+            <result name="viewAllRentParkings">/m_parking_rent_center.jsp</result>
+            <result name="findRentParkings">/m_parking_rent_center.jsp</result>
+            <result name="releaseRentParking">/m_last_rent_bill.jsp</result>
+      </action>
+      <action name="water" class="WaterAction"><!-- 水表Action -->
+           <result>/manager_index.jsp</result>  
+           <result name="ownerViewWaterBill">/o_water_fee_management.jsp</result>
+           <result name="notFindOwnerViewWaterBill">/o_water_fee_management.jsp</result>
+           <result name="creatWaterBill">/manager_index.jsp</result>  
+           <result name="ownerMakeWaterPayment">/o_water_makepayment_success.jsp</result>
+           <result name="createWaterDebt">/manager_index.jsp</result>
+      </action> <action name="elec" class="ElecAction"><!-- 电表Action -->
+           <result>/manager_index.jsp</result>  
+           <result name="creatElecBill">/manager_index.jsp</result> 
+           <result name="createElecDebt">/manager_index.jsp</result>
+           <result name="ownerViewElecBill">/o_elec_fee_management.jsp</result>
+           <result name="notFindOwnerViewElecBill">/o_elec_fee_management.jsp</result>
+           <result name="ownerMakeElecPayment">/o_elec_makepayment_success.jsp</result>
+      </action>
+      <action name="community" class="CommunityAction"><!-- 添加社区Action -->
+      	<result>/super_index.jsp</result>
+       	<result name="addCommunity">/super_index.jsp</result>
+       	<result name="viewAllCommunities">/s_viewAllCommunity.jsp</result>
+       	<result name="deleteCommunity">/s_viewAllCommunity.jsp</result>
+       	<result name="viewAllBuildings">/s_addBuilding.jsp</result>
+       	<result name="addBuilding">/s_addBuilding.jsp</result>
+       	<result name="deleteBuilding">/s_addBuilding.jsp</result>
+       	<result name="viewAllFloors">/s_view_all_floors.jsp</result>
+       	<result name="viewAllRooms">/s_addRoom.jsp</result>
+       	<result name="addRoom">/s_addRoom.jsp</result>
+      </action>
+      <action name="exit" class="cn.edu.xmu.nextgencomm.view.ExitAction"><!-- 退出登录Action -->
+           <result>/login.jsp</result>   
+    </action>
+	</package>
+</struts>

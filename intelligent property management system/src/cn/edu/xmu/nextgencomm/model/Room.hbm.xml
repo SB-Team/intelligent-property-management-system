@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 映射Room类 -->
+	<class name="cn.edu.xmu.nextgencomm.model.Room" table="room_table">
+		<id name="id" column="t_id" type="int">
+			<generator class="increment"/>
+		</id>
+		<property name="roomnum" column="room_num" type="int" length="10"/>
+		<property name="roomarea" column="room_area" type="string" length="30"/>
+		
+		
+		<many-to-one name="floor" class="cn.edu.xmu.nextgencomm.model.Floor" 
+		cascade="save-update,persist" column="floor_id" lazy="false"/>
+			
+		<many-to-one name="user" unique="true" class="cn.edu.xmu.nextgencomm.model.User"
+			column="user_id" lazy="false"/>
+			
+		<set name="waterPayments" inverse="true" lazy="false">
+			<!-- 指定关联的外键列 -->
+			<key column="r_id"/>
+			<!-- 用以映射到关联类属性 -->
+			<one-to-many class="cn.edu.xmu.nextgencomm.model.WaterPayment" />
+		</set>
+		<set name="elecPayments" inverse="true" lazy="false">
+			<!-- 指定关联的外键列 -->
+			<key column="r_id"/>
+			<!-- 用以映射到关联类属性 -->
+			<one-to-many class="cn.edu.xmu.nextgencomm.model.ElecPayment" />
+		</set>
+		
+		<one-to-one name="waterDebt" property-ref="waterDebtRoom"/>
+		<one-to-one name="elecDebt" property-ref="elecDebtRoom"/>
+	</class>
+</hibernate-mapping>
